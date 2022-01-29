@@ -2,7 +2,7 @@
 //  ColorView.swift
 //  ColorAppSwiftUI
 //
-//  Created by Алексей Парфенов on 26.01.2022.
+//  Created by Алексей Парфенов on 29.01.2022.
 //
 
 import SwiftUI
@@ -14,22 +14,18 @@ struct ColorView: View {
     let blue: Double
     
     var body: some View {
-        Color(
-            red: red / 255,
-            green: green / 255,
-            blue: blue / 255
-        )
+        Color(red: red / 255, green: green / 255, blue: blue / 255)
             .cornerRadius(20)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .stroke(Color.white, lineWidth: 4)
-            )
             .frame(height: 150)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white, lineWidth: 5)
+            )
     }
 }
 
 struct ColorView_Previews: PreviewProvider {
     static var previews: some View {
-        ColorView(red: 128, green: 128, blue: 128)
+        ColorView(red: 100, green: 100, blue: 100)
     }
 }
