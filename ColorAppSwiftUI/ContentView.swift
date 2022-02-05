@@ -5,6 +5,7 @@
 //  Created by Алексей Парфенов on 26.01.2022.
 //
 
+
 import SwiftUI
 
 struct ContentView: View {
@@ -13,7 +14,7 @@ struct ContentView: View {
     @State private var green = Double.random(in: 0...255)
     @State private var blue = Double.random(in: 0...255)
 
-//    @FocusState private var isInputActive: Bool
+    @FocusState private var isInputActive: Bool
 
     var body: some View {
         ZStack {
@@ -32,7 +33,16 @@ struct ContentView: View {
                 ColorSliderView(value: $blue, color: .blue)
             }
             .frame(height: 150)
-                Spacer()
+            .focused($isInputActive)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        isInputActive = false
+                    }
+                }
+            }
+            Spacer()
             }
             .padding()
         }
